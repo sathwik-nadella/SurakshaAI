@@ -69,13 +69,16 @@ function App() {
     setFraudResult(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/fraud/analyze", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://surakshaai-t389.onrender.com/fraud/analyze",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message }),
         },
-        body: JSON.stringify({ message }),
-      });
+      );
 
       const data = await response.json();
       setFraudResult(data);
